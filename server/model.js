@@ -3,7 +3,7 @@ let schema= new mongoose.Schema({
     name:{
         type:String,
         required:true,
-        maxLength:7
+        
     },
     location:{
         type:String,
@@ -17,7 +17,7 @@ let schema= new mongoose.Schema({
     password:{
         type:String,
         required:true,
-        maxLength:6
+        
     },
     date:{
         type:Date,
