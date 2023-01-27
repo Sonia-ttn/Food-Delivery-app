@@ -1,13 +1,12 @@
+
 const express=require("express");
 const app=express();
-const port=5000;
+require('dotenv').config();
+const port=process.env.PORT;
 var cors = require('cors')
 const mongodb=require("./db");
 mongodb();
-app.get("/",(req,res)=>{
-    res.send("heyy")
-    console.log("hey")
-})
+
 app.use(cors());
 app.use(express.json());
 app.use("/api",require("./routes/Createuser"))

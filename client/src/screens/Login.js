@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState} from 'react';
-import { Link,Navigate,useNavigate} from "react-router-dom";
+import { Link,useNavigate} from "react-router-dom";
 
 function Login() {
   const [credentials, setCredentials] = useState({
@@ -33,8 +33,9 @@ function Login() {
     }
     if(json.success){
       console.log("token",json.token);
-      localStorage.setItem("token",json.token)
-      console.log(localStorage.getItem("token"));
+      localStorage.setItem('token',json.token.token)
+     
+     localStorage.getItem('token');
 
       nav("/")
     }

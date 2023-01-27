@@ -4,7 +4,8 @@ const { body, validationResult } = require("express-validator");
 const jwt=require("jsonwebtoken");
 const bcrypt=require('bcryptjs')
 const User = require("../model");
-const secret="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ";
+require('dotenv').config();
+const secret=process.env.SECRET;
 router.post("/loginuser",
 //email must be an valid
 body("email").isEmail(),
