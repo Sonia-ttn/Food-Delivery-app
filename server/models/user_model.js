@@ -1,5 +1,5 @@
 const mongoose=require("mongoose");
-let schema= new mongoose.Schema({
+let Userschema= new mongoose.Schema({
     name:{
         type:String,
         required:true,
@@ -24,5 +24,5 @@ let schema= new mongoose.Schema({
         default:Date.now
     }
 }) 
-let model=mongoose.model("User",schema)
+let model=mongoose.model("User",Userschema)
 module.exports=model

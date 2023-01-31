@@ -1,8 +1,8 @@
 import React from "react";
 
-function Carousel() {
+function Carousel(props) {
   return (
-    <div
+     <div
       id="carouselExample"
       className="carousel slide carousel-fade"
       style={{ objectFit: "contain !important" }}
@@ -10,17 +10,17 @@ function Carousel() {
       <div className="carousel-inner" style={{maxHeight:
       "520px"}}>
         <div className="carousel-caption" style={{ zIndex: "10" }}>
-          <form className="d-flex">
+          <div className="d-flex justify-content-center">
             <input
               className="form-control me-2"
               type="search"
               placeholder="Search"
               aria-label="Search"
+              value={props.Search}
+              onChange={(e)=>{props.setSearch(e.target.value)}}
             />{" "}
-            <button className="btn btn-outline-success" type="submit">
-              Search
-            </button>
-          </form>
+            {/* <button className="btn btn-outline-success" type="submit">Search</button> */}
+          </div>
         </div>
         <div className="carousel-item active">
           <img

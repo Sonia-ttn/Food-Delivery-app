@@ -1,8 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const { body, validationResult } = require("express-validator");
-const User = require("../model");
+const User = require("../models/user_model");
 var bcrypt = require('bcryptjs');
+
 router.post(
   "/createuser",
   //email must be an valid
@@ -47,15 +48,37 @@ router.get("/createuser", async (req, res) => {
 });
 router.put("/createuser/:id", async (req, res) => {
   try {
-    console.log(req.params);
-    let data = await User.updateOne(req.params, {
-      $set: req.body,
-    });
-    console.log(data);
+    console.log("id is -->",req.params.id);
+    const salt=await bcrypt.genSalt(10);
+    let secPass=await bcrypt.hash(req.body.password,salt);
+    console.log("body is -->",req.body.password,"secpass-->",secPass);
+
+    let data;
+      data = await User.findByIdAndUpdate(req.params.id, {
+        $set: {
+          name:req.body.name,
+          email:req.body.email,
+          location:req.body.location,
+          password:secPass
+        }
+      });
+    
+    // let data = await User.updateOne(req.params, {
+    //   $set: req.body
+    // });
+    console.log("data is -->",data);  
+    
+    if (!data)
+    {
+      res.status(400).json({ success: false,message:"user doesn't exist" });
+
+    }
     res
       .status(200)
       .json({ success: true, User: data, message: "Updated data" });
-  } catch (err) {
+  
+
+} catch (err) {
     res.status(400).json({ success: false, error: err });
   }
 });
@@ -68,7 +91,7 @@ router.delete("/createuser/:id", async (req, res) => {
       .status(200)
       .json({ success: true, User: data, message: "Data deleted" });
   } catch (err) {
-    res.status(400).json({ success: false, error: err });
+    res.status(400).json({ success: false, error: err.message });
   }
 });
 module.exports = router;

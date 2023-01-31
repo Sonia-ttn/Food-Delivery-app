@@ -11,6 +11,11 @@ app.use(cors());
 app.use(express.json());
 app.use("/api",require("./routes/Createuser"))
 app.use("/api",require("./routes/Loginuser"))
+app.use("/api",require("./routes/Createfood"))
+app.use("/api",require("./routes/Createcategory"))
+app.use("/api",require("./routes/Displayfood"))
+
+
 app.listen(port,()=>{
     console.log("server running on "+port)
 })

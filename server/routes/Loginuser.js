@@ -3,7 +3,7 @@ const router = express.Router();
 const { body, validationResult } = require("express-validator");
 const jwt=require("jsonwebtoken");
 const bcrypt=require('bcryptjs')
-const User = require("../model");
+const User = require("../models/user_model");
 require('dotenv').config();
 const secret=process.env.SECRET;
 router.post("/loginuser",
