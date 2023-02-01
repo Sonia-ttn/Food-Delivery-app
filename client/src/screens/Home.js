@@ -4,6 +4,7 @@ import Nav from "../components/Navbar";
 import Footer from "../components/Footer";
 import Card from "../components/Card";
 import Carousel from "../components/Carousel";
+// import { useDispatchCart,useCart } from "../components/ContextReducer";
 function Home() {
   const [foodItem, setFoodItem] = useState([]);
   const [foodCat, setFoodCat] = useState([]);
@@ -28,7 +29,7 @@ function Home() {
   }, []);
 
   return (
-    <div>
+    <div className="con bg-light">
       <div>
         <Nav />
       </div>
@@ -54,11 +55,9 @@ function Home() {
                   return (
                     //normal view div occupy 12 but size goes md(medium) div occupy 6
                     <div key={filterItems._id} className="col-12 col-md-6 col-lg-3">
-                      <Card foodName={filterItems.name} 
+                      <Card foodItem={filterItems} 
                       options={filterItems.options[0]} 
-                      imgSrc={filterItems.img}
-                      description={filterItems.description}>
-
+                      >
                       </Card>
                     </div>
                   )

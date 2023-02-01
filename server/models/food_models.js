@@ -19,6 +19,10 @@ let Foodschema= new mongoose.Schema({
     description:{
         type:String,
         required:true
+    },
+    price:{
+        type:Number,
+        required:true
     }
 }) 
 let models=mongoose.model("Food-items",Foodschema)
