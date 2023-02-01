@@ -8,8 +8,9 @@ function Card(props) {
   return (
     <div>
     <div className="card mt-3 " style={{ width: "19rem","maxHeight":"464px" }}>
-      <img src="https://source.unsplash.com/random/" className="card-img-top" alt="..." style={{ "maxHeight":"280px" }}/>
-      <div className="card-body">
+      
+     <img src={props.imgSrc} className="card-img-top" alt="..." style={{ "maxHeight":"280px" ,"height":"160px" ,"objectFit":"fill"}}/>
+      <div className="card-body"> 
         <h5 className="card-title">{props.foodName}</h5>
         <p className="card-text">{props.description}</p>
         <div className="container w-100" >

@@ -24,7 +24,7 @@ function Carousel(props) {
         </div>
         <div className="carousel-item active">
           <img
-            src="https://source.unsplash.com/random/300×300/?burger"
+            src="https://source.unsplash.com/random/300×300/?food"
             className="d-block w-100"
             style={{ filter: "brightness(30%" }}
             alt="..."
@@ -32,7 +32,7 @@ function Carousel(props) {
         </div>
         <div className="carousel-item">
           <img
-            src="https://source.unsplash.com/random/300×300/?momos"
+            src="https://source.unsplash.com/random/300×300/?potato"
             className="d-block w-100"
             style={{ filter: "brightness(30%" }}
             alt="..."
@@ -40,7 +40,7 @@ function Carousel(props) {
         </div>
         <div className="carousel-item">
           <img
-            src="https://source.unsplash.com/random/300×300/?pizza"
+            src="https://source.unsplash.com/random/300×300/?sushi"
             className="d-block w-100"
             style={{ filter: "brightness(30%" }}
             alt="..."
