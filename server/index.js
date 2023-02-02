@@ -15,6 +15,8 @@ app.use("/api",require("./routes/Createfood"))
 app.use("/api",require("./routes/Createcategory"))
 app.use("/api",require("./routes/Displayfood"))
 app.use("/api",require("./routes/Orderdata"))
+app.use("/api",require("./routes/myOrderData"))
+
 
 
 app.listen(port,()=>{

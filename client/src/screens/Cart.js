@@ -17,9 +17,9 @@ function Cart() {
     }
     let totPrice= data.reduce((total,food)=>total+food.price,0)
 
-    const handleCheckout=async()=>{
+    const handleCheckout=async(req,res)=>{
         let userEmail=localStorage.getItem("email");
-        let res=await fetch("http://localhost:5000/api/orderData",{
+        let resp=await fetch("http://localhost:5000/api/orderData",{
             method:'POST',
             headers: {
                 "Content-type": "application/json; charset=UTF-8",
@@ -33,7 +33,8 @@ function Cart() {
               )
         }
         )
-        if(res.status===200){
+        if(resp.status===200){
+            res.send(<div>Order Placed!!</div>)
             dispatch({type:"DROP"})
         }
     }
