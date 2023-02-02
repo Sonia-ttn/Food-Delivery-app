@@ -34,7 +34,8 @@ function Login() {
     if(json.success){
       console.log("token",json.token);
       localStorage.setItem('token',json.token.token)
-     
+      localStorage.setItem('email',credentials.email)
+
      localStorage.getItem('token');
 
       nav("/")

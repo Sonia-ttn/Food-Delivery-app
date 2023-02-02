@@ -17,6 +17,26 @@ function Cart() {
     }
     let totPrice= data.reduce((total,food)=>total+food.price,0)
 
+    const handleCheckout=async()=>{
+        let userEmail=localStorage.getItem("email");
+        let res=await fetch("http://localhost:5000/api/orderData",{
+            method:'POST',
+            headers: {
+                "Content-type": "application/json; charset=UTF-8",
+              },
+              body: JSON.stringify(
+                // Add parameters here
+                { 
+                 email: userEmail ,
+                 order_data:data,
+                 order_date: new Date().toDateString() }
+              )
+        }
+        )
+        if(res.status===200){
+            dispatch({type:"DROP"})
+        }
+    }
   return (
     <>
     <div className='container m-auto mt-5 table-responsive table-responsive-sm table-responsive-md'>
@@ -56,7 +76,7 @@ function Cart() {
       <div><h1 className='fs-2'>Total Price: {totPrice}/-</h1></div>
 
       <div>
-        <button className='btn bg-success mt-5 text-white'>Check Out</button>
+        <button className='btn bg-success mt-5 text-white' onClick={handleCheckout}>Check Out</button>
       </div>
     </div>
     </>
