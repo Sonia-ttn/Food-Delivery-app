@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 let uri =
-  "mongodb+srv://Sonia:E8GeOiv6ONo5L2Xa@cluster0.bf20kmb.mongodb.net/Gofood?retryWrites=true&w=majority;";
+  "";
 mongoose.set("strictQuery", false);
 
 const mongodb = async () => {
